@@ -12,7 +12,7 @@ const loading = document.querySelector(".loading");
 const chatGPT = document.querySelector(".chatGPT");
 const startContainer = document.querySelector(".start-container");
 
-const apiKey = "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";
+const apiKey = "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";
 
 const fetchChatGpt = async () => {
   stats.style.display = "block";
@@ -41,28 +41,33 @@ const showValues = async () => {
     return;
   }
 
-  const responseFetch = await fetchChatGpt();
-  const responseGTP = responseFetch.choices[0].text;
-  stats.style.display = "none";
-  const div = document.createElement("div");
-  div.innerHTML += ` 
-     <div class=" question-container">
-     
-       <p class="question">${input.value}</p>
-       <span class="material-symbols-outlined user">
-        account_circle
-        </span>
-     </div>
-
-     <div class="response-container">
-      <img class="robot" src="img/profile.png" alt="">
-      <p class="response">${responseGTP}</p> 
-     </div>`;
-  chat.appendChild(div);
-  chat.scrollTop = chat.scrollHeight;
-  input.style.border = "1px solid white";
-  input.value = "";
-  input.focus();
+  try {
+    const responseFetch = await fetchChatGpt();
+    const responseGTP = responseFetch.choices[0].text;
+    stats.style.display = "none";
+    const div = document.createElement("div");
+    div.innerHTML += ` 
+       <div class=" question-container">
+       
+         <p class="question">${input.value}</p>
+         <span class="material-symbols-outlined user">
+          account_circle
+          </span>
+       </div>
+  
+       <div class="response-container">
+        <img class="robot" src="img/profile.png" alt="">
+        <p class="response">${responseGTP}</p> 
+       </div>`;
+    chat.appendChild(div);
+    chat.scrollTop = chat.scrollHeight;
+    input.style.border = "1px solid white";
+    input.value = "";
+    input.focus();
+  } catch (erro) {
+    alert(erro);
+  }
+   
 };
 
 sendBtn.addEventListener("click", showValues);
