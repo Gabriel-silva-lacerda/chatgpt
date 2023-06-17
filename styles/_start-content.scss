@@ -64,7 +64,6 @@ main {
 	max-width: 100%;
     z-index: 1;
     transition: all .7s ease-in-out;
-    // display: none;
     .start-new-chat {
         @include displayFlex();
         flex-direction: column;

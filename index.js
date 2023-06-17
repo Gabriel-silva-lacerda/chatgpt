@@ -76,16 +76,12 @@ btnStart.addEventListener("click", () => {
   startContainer.style.opacity = "0";
   chatGPT.style.opacity = "1";
   chatGPT.style.zIndex = "2";
-  // chatGPT.style.transform = "translateX(0)";
-  // startContainer.style.transform = "translateX(20px)";
 });
 
 btnArrow.addEventListener("click", () => {
   startContainer.style.opacity = "1";
   chatGPT.style.opacity = "0";
   chatGPT.style.zIndex = "0";
-  // chatGPT.style.transform = "translateX(-20px)";
-  // startContainer.style.transform = "translateX(0)";
 });
 
 document.addEventListener("keydown", (e) => {
