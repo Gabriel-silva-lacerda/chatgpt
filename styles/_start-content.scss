@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+$background: #1A1A40;
+$black: #101013;
+$white: #fff;
+$gray: #777676;
+$lightGray: #d3caca;
+$green: #4ee44e;
+$ligthBlack: #151516;
+
+$boxShadow: rgba(255, 255, 255, 0.35) 0px 0px 15px;
+$hoverShadow: rgb(255, 255, 255) 0px 0px 3px; 
+$textShadow: rgba(255, 255, 255, 0.35) 0px 0px 4px;
+$chatShadow: rgb(3, 3, 3) 0px 0px 5px;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;   
+    font-family: 'Poppins', sans-serif;
+}
+
+@mixin displayFlex() {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main {
+    @include displayFlex();
+    min-height: 100vh;
+    background-color: $background;
+    padding: 0px 20px;
+    position: relative;
+    animation: colors 15s ease infinite;
+    @keyframes colors {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+
+        }
+    }
+}
+
+.start-robot {
+    width: 100%;
+    max-width: 320px;
+}
+
+.start-container {
+    box-shadow: $boxShadow;
+    border-radius: 30px;
+    padding: 20px;
+    background-color: $black;
+    @include displayFlex();
+    flex-direction: column;
+    position: absolute;
+    width: 350px;
+	max-width: 100%;
+    z-index: 1;
+    transition: all .7s ease-in-out;
+    // display: none;
+    .start-new-chat {
+        @include displayFlex();
+        flex-direction: column;
+        h1 {
+            max-width: 250px;
+            text-align: center;
+            font-size: 1.8rem;
+            color: $white;
+            text-shadow: $textShadow;
+        }
+        p {
+            font-size: .9rem;
+            max-width: 270px;
+            text-align: center;
+            margin: 20px 0px;
+            color: $lightGray;
+            font-weight: 100;
+        }    
+    }
+    .btn-start {
+        width: 100%;
+        padding: 22px;
+        border: none;
+        font-size: 1.1rem;
+        font-weight: 600;
+        border-radius: 50px;
+        background-color: $white;
+        box-shadow: $boxShadow;
+        cursor: pointer;
+        @include displayFlex();
+        gap: 10px;
+        &:hover {
+            background-color: $gray;
+            transition: 500ms;
+            box-shadow: $hoverShadow;
+            color: $white;
+        }
+       }
+}
+
+@media (max-width: 500px) {
+    .start-container {
+        width: 100%;
+        height: 100%;
+        max-width: 100%;
+        border-radius: 0;
+    }
+}

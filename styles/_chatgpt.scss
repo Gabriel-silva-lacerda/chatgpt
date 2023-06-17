@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+.robot-profile {
+    width: 100%;
+    max-width: 45px;
+    border-radius: 50%; 
+    height: 45px;
+    @include displayFlex();
+}
+
+.chatGPT {
+    background-color: $black;
+    box-shadow: $boxShadow;
+    padding: 20px;
+    height: 625px;
+    width: 360px;
+    border-radius: 30px;
+    opacity: 0;
+    transition: all .7s ease-in-out;
+    position: absolute;
+    width: 350px;
+	max-width: 100%;
+    height: 70%;
+    // transform: translateX(-20px);
+    .profile {
+        @include displayFlex();
+        justify-content: space-between;
+        .btn-arrow {
+            @include displayFlex();
+            border-radius: 50%;
+            padding: 12px;
+            cursor: pointer;
+            border: none;
+            &:hover {
+                background-color: $gray;
+                transition: 500ms;
+                box-shadow: $hoverShadow;
+                color: $white;
+            }
+        }
+        .online-container {
+            @include displayFlex();
+            flex-direction: column;
+            position: relative;
+            h4 {
+                color: $white;
+            }
+            .online {
+                color: $lightGray;
+                display: inline-block;
+                text-align: center;
+                font-size: .7rem;
+                &::after {
+                    content: "";
+                    width: 7px;
+                    height: 7px;
+                    border-radius: 50%;
+                    position: absolute;
+                    left: 6px;
+                    bottom: 5.5px;
+                    background-color: $green;
+                }
+            }
+        }
+    }
+    .chat {
+        margin: 20px 0px;
+        height: 74%;
+        overflow-y: auto ;
+        background-color:  $ligthBlack;
+        padding: 15px;
+        border-radius: 5px;
+        box-shadow: $chatShadow;
+        position: relative;
+        &::-webkit-scrollbar {
+            width: 10px;
+            border: 2px solid $black;
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: $white;
+            border-radius: 2px;
+        }
+        .stats-container{
+            position: relative;
+            .stats {
+                display: none;
+                &::before {
+                    content: "";
+                    animation: is-rotating 1s infinite;
+                    padding: 12px;
+                    border-radius: 50%;
+                    border: 6px solid #e5e5e5;
+                    border-top-color: #51d4db;
+                    position: absolute;
+                    left: 43%;
+                    top: 0;    
+                }
+                @keyframes is-rotating {
+                    to {
+                        transform: rotate(1turn);
+                    }
+                }
+            }
+        }
+        
+        .question-container {
+            display: flex;
+            justify-content: flex-end;
+        
+            .user {
+                color: $white;
+                font-size: 2.5rem;
+                font-weight: 300;
+            }
+        }
+        .response-container {
+            display: flex;
+
+            .robot {
+                width: 100%;
+                max-width: 30px;
+                height: 30px;
+                border-radius: 50%; 
+                @include displayFlex();
+            }
+        }
+        p {
+            max-width: 300px;
+            padding: 10px 10px 20px 10px;
+            color: $lightGray;
+            font-size: .9rem;
+            letter-spacing: 0.02rem;
+            line-height: 1.5;
+            font-family: 'Roboto', sans-serif;
+        }
+        .question {
+            text-align: right;
+            
+        }
+        .response {
+            padding-top: 0px
+        }
+    }
+    .input-container {
+        @include displayFlex();
+        gap: 20px;
+
+        input {
+            width: 100%;
+            height: 100%;
+            padding: 19px;
+            border-radius: 30px;
+            border: 1px solid transparent;
+            border: none;
+            box-shadow: $chatShadow;
+            outline:  none;
+            background-color: #151516;
+            color: $white;
+            &:focus {
+                border: 1px solid $white;
+            }
+        }
+        .send-button {
+            @include displayFlex();
+            border-radius: 50%;
+            padding: 13px;
+            border: none;
+            cursor: pointer;
+            &:hover {
+                background-color: $gray;
+                transition: 500ms;
+                box-shadow: $hoverShadow;
+                color: $white;
+            }
+        }
+        .material-symbols-outlined {
+            transform: rotate(-60deg);
+            margin-bottom: 2px;
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .chatGPT {
+        width: 100%;
+        height: 100%;
+        max-width: 100%;
+        border-radius: 0;
+        .chat {
+            height: 80%;
+        }
+    }
+}
