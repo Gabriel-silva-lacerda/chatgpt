@@ -1,3 +1,4 @@
+const apiKey = "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";
 const btnStart = document.querySelector(".btn-start");
 const btnArrow = document.querySelector(".btn-arrow");
 
@@ -11,8 +12,6 @@ const loading = document.querySelector(".loading");
 
 const chatGPT = document.querySelector(".chatGPT");
 const startContainer = document.querySelector(".start-container");
-
-const apiKey = "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";
 
 const fetchChatGpt = async () => {
   stats.style.display = "block";
